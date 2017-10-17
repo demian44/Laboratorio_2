@@ -1,0 +1,6 @@
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Clases\bin\Debug\Clases.dll
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Clases\bin\Debug\Clases.pdb
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Clases\obj\Debug\Clases.csprojResolveAssemblyReference.cache
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Clases\obj\Debug\Clases.csproj.CoreCompileInputs.cache
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Clases\obj\Debug\Clases.dll
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Clases\obj\Debug\Clases.pdb

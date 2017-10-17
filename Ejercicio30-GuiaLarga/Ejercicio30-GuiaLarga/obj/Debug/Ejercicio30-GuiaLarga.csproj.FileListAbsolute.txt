@@ -1,0 +1,7 @@
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Ejercicio30-GuiaLarga\bin\Debug\Ejercicio30-GuiaLarga.exe.config
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Ejercicio30-GuiaLarga\bin\Debug\Ejercicio30-GuiaLarga.exe
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Ejercicio30-GuiaLarga\bin\Debug\Ejercicio30-GuiaLarga.pdb
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Ejercicio30-GuiaLarga\obj\Debug\Ejercicio30-GuiaLarga.csprojResolveAssemblyReference.cache
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Ejercicio30-GuiaLarga\obj\Debug\Ejercicio30-GuiaLarga.csproj.CoreCompileInputs.cache
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Ejercicio30-GuiaLarga\obj\Debug\Ejercicio30-GuiaLarga.exe
+C:\Users\DEM\source\repos\Ejercicio30-GuiaLarga\Ejercicio30-GuiaLarga\obj\Debug\Ejercicio30-GuiaLarga.pdb

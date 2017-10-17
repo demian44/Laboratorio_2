@@ -1,0 +1,6 @@
+c:\users\dem\source\repos\Ejercicio47\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+c:\users\dem\source\repos\Ejercicio47\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+c:\users\dem\source\repos\Ejercicio47\ClassLibrary1\obj\Debug\Clases.csprojResolveAssemblyReference.cache
+c:\users\dem\source\repos\Ejercicio47\ClassLibrary1\obj\Debug\Clases.csproj.CoreCompileInputs.cache
+c:\users\dem\source\repos\Ejercicio47\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+c:\users\dem\source\repos\Ejercicio47\ClassLibrary1\obj\Debug\ClassLibrary1.pdb

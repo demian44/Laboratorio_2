@@ -1,0 +1,9 @@
+c:\users\dem\source\repos\Ejercicio47\Ejercicio47\bin\Debug\Ejercicio47.exe.config
+c:\users\dem\source\repos\Ejercicio47\Ejercicio47\bin\Debug\Ejercicio47.exe
+c:\users\dem\source\repos\Ejercicio47\Ejercicio47\bin\Debug\Ejercicio47.pdb
+c:\users\dem\source\repos\Ejercicio47\Ejercicio47\obj\Debug\Ejercicio47.csprojResolveAssemblyReference.cache
+c:\users\dem\source\repos\Ejercicio47\Ejercicio47\obj\Debug\Ejercicio47.csproj.CoreCompileInputs.cache
+c:\users\dem\source\repos\Ejercicio47\Ejercicio47\obj\Debug\Ejercicio47.exe
+c:\users\dem\source\repos\Ejercicio47\Ejercicio47\obj\Debug\Ejercicio47.pdb
+c:\users\dem\source\repos\Ejercicio47\Ejercicio47\bin\Debug\ClassLibrary1.dll
+c:\users\dem\source\repos\Ejercicio47\Ejercicio47\bin\Debug\ClassLibrary1.pdb
