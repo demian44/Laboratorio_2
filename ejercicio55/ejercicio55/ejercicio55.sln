@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2012
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ejercicio55", "ejercicio55\ejercicio55.csproj", "{D5F1021F-AA44-4F21-831C-FA073B3521E4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IO", "ClassLibrary1\IO.csproj", "{5E1E9AB7-5B80-4292-A688-B7F289CF1636}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5F1021F-AA44-4F21-831C-FA073B3521E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5F1021F-AA44-4F21-831C-FA073B3521E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5F1021F-AA44-4F21-831C-FA073B3521E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5F1021F-AA44-4F21-831C-FA073B3521E4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E1E9AB7-5B80-4292-A688-B7F289CF1636}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E1E9AB7-5B80-4292-A688-B7F289CF1636}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E1E9AB7-5B80-4292-A688-B7F289CF1636}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E1E9AB7-5B80-4292-A688-B7F289CF1636}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

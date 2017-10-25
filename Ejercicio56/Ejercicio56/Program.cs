@@ -11,6 +11,11 @@ namespace Ejercicio56
     {
         static void Main(string[] args)
         {
+            Persona persona = new Persona("Demian", "Boullon");
+            Persona.Guardar(persona);
+            Persona persona2 = Persona.LeerPersona();
+            Console.WriteLine(persona2.ToString());
+            Console.ReadKey();
         }
     }
 }

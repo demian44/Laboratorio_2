@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
@@ -27,11 +29,12 @@ using System.Xml.Serialization;
 
 namespace Ejercicio56
 {
+    [Serializable]
     public class Persona
     {
         private string _nombre;
         private string _apellido;
-        Persona(string nombre, string apellido)
+        public Persona(string nombre, string apellido)
         {
             this._apellido = apellido;
             this._nombre = nombre;
@@ -39,13 +42,39 @@ namespace Ejercicio56
         
         /* ii. Crear un método estático llamado Guardar que reciba una persona y la serialice en
         un archivo.*/
-        public static Guardar(Persona persona)
+        public static void Guardar(Persona persona)
         {
-            XmlTextWriter writer;// = new XmlTextWriter writer();
-            XmlSerializer ser;   
+            FileStream fileStream = new FileStream(@"./Persona.txt",FileMode.Create);
+            BinaryFormatter binaryFormatter = new BinaryFormatter();
+            binaryFormatter.Serialize(fileStream,persona);
+            fileStream.Close();
+        }
+
+        public static Persona LeerPersona()
+        {
+            Persona aux = new Persona(" "," ");   //Objeto que alojará los datos
+            
+            //contenidos en el archivo binario.
+            FileStream fs;                  //Objeto que leerá en binario.
+            BinaryFormatter ser;      //Objeto que Deserializará.
+
+            fs = new FileStream(@"./Persona.txt", FileMode.Open);
+            //Se indica ubicación del archivo binario y el modo.
+            ser = new BinaryFormatter();
+            //Se crea el objeto deserializador.
+            aux = (Persona)ser.Deserialize(fs);
+            //Deserializa el archivo contenido en fs, lo guarda 
+            //en aux.
+            fs.Close();
+            return aux;
 
         }
-      
 
+        public override string ToString()
+        {
+            return ("Nombre: " + this._nombre + " - Apellido: " + this._apellido);
+        }
     }
+
+        
 }
