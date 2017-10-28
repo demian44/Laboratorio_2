@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TP3_Boullon_Demian", "TP3_Boullon_Demian\TP3_Boullon_Demian.csproj", "{8D69F160-2292-4A9A-899F-80E70ED33D19}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibrary", "ClassLibrary\ClassLibrary.csproj", "{7D9C02D7-BB9D-476D-9590-C1FCF13DB69C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClasesAbstractas", "ClassLibrary\ClasesAbstractas.csproj", "{7D9C02D7-BB9D-476D-9590-C1FCF13DB69C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Archivos", "Archivos\Archivos.csproj", "{A8F8E34D-2D16-41B2-93D4-C463AA7C0B4E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{7D9C02D7-BB9D-476D-9590-C1FCF13DB69C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7D9C02D7-BB9D-476D-9590-C1FCF13DB69C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7D9C02D7-BB9D-476D-9590-C1FCF13DB69C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8F8E34D-2D16-41B2-93D4-C463AA7C0B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8F8E34D-2D16-41B2-93D4-C463AA7C0B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8F8E34D-2D16-41B2-93D4-C463AA7C0B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8F8E34D-2D16-41B2-93D4-C463AA7C0B4E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -17,21 +17,23 @@ using System.Threading.Tasks;
  * */
 namespace ClassLibrary
 {
+    public enum ENacionalidad { Argentino, Extranjero }
+
     public abstract class Persona
     {
-        private string _nombre;      
+        private string _nombre;
         private string _apellido;
-        private string _nacionalidad;
-        private string _dni;
+        private ENacionalidad _nacionalidad;
+        private int _dni;
 
         #region Propiedades
 
-        public string Nombre
+        protected string Nombre
         {
             get { return this._nombre; }
             set
             {
-                if(OnlyLetters(value))
+                if (OnlyLetters(value))
                     this._nombre = value;
             }
         }
@@ -46,13 +48,12 @@ namespace ClassLibrary
             }
         }
 
-        public string Nacionalidad
+        public ENacionalidad Nacionalidad
         {
             get { return this._nacionalidad; }
             set
             {
-                if (OnlyLetters(value))
-                    this._nacionalidad = value;
+                this._nacionalidad = value;
             }
         }
 
@@ -60,6 +61,34 @@ namespace ClassLibrary
 
 
         #region Metodos
+
+        public Persona()
+        {
+            this._nombre = "";
+            this._apellido = "";
+            this._dni = 0;
+        }
+
+        public Persona(String nombre, String apellido, ENacionalidad nacionalidad) : this()
+        {
+            this._nombre = nombre;
+            this._apellido = apellido;
+            this._nacionalidad = nacionalidad;
+        }
+
+        public Persona(String nombre, String apellido, int dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
+        {
+            if (this.ValidarDni(dni))
+                this._dni = dni;
+        }
+
+        public Persona(String nombre, String apellido, String dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
+        {
+            int aux = 0;
+            if (int.TryParse(dni, out aux) && this.ValidarDni(aux))
+                this._dni = aux;         
+        }
+
         /// <summary>
         /// Recorre la cadena de caracteres en busca de un elemento que no sea una letra.
         /// En caso de encontrar dicho elemento retorna false, caso contrario, true.
@@ -85,19 +114,41 @@ namespace ClassLibrary
         /// </summary>
         /// <param name="dni"></param>
         /// <returns></returns>
-        private bool ValidarDni(int dni)
+        private int ValidarDni(ENacionalidad nacionalidad, int dni)
         {
-            bool retorno = false;
-            if (!ReferenceEquals(null, dni))
+            int retorno = 0;
+            if (nacionalidad == ENacionalidad.Argentino)
             {
                 if (dni > 0 && dni < 90000000)
-                    retorno = true;
+                    retorno = dni;
             }
-
             return retorno;
         }
-        #endregion
 
-        
+        /// <summary>
+        /// Valida que el dni esté entre 1 y 89999999.
+        /// </summary>
+        /// <param name="dni"></param>
+        /// <returns></returns>
+        private int ValidarDni(ENacionalidad nacionalidad, string dni)
+        {
+            int aux = 0;
+            if (nacionalidad == ENacionalidad.Argentino && int.TryParse(dni,out aux))
+            {
+                if (aux < 1 || aux > 89999999)
+                    aux = 0;
+            }
+            return aux;
+        }
+
+        /// <summary>
+        /// Devuelve nombre, apellido, nacionalidad y DNI (Uno por renglon).
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return String.Format("Nombre: {0}\nApellido: {1}\nNacionalidad: {2}\nDNI: {3}", this._apellido, this._nombre, this._nacionalidad.ToString(), this._dni);
+        }
+        #endregion
     }
 }
