@@ -1,9 +1,7 @@
 ﻿using System;
 using System.IO;
-using static ClasesInstanciables.Universidad;
-using System.Text;
-using static EntidadesAbstractas.Persona;
 using EntidadesAbstractas;
+using System.Text;
 
 namespace ClasesInstanciables
 {
@@ -25,12 +23,14 @@ namespace ClasesInstanciables
         public Alumno() : base()
         { }
 
-        public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, EClases claseQueToma) : base(id, nombre, apellido, dni, nacionalidad)
+        public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, Universidad.EClases claseQueToma)
+            : base(id, nombre, apellido, dni, nacionalidad)
         {
             this._claseQueToma = claseQueToma;
         }
 
-        public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, EClases claseQueToma, EEstadoCuenta estadoCuenta) : this(id, nombre, apellido, dni, nacionalidad,claseQueToma)
+        public Alumno(int id, string nombre, string apellido, string dni, ENacionalidad nacionalidad, Universidad.EClases claseQueToma, EEstadoCuenta estadoCuenta)
+            : this(id, nombre, apellido, dni, nacionalidad, claseQueToma)
         {
             this._estadoCuenta = estadoCuenta;
         }
@@ -43,7 +43,7 @@ namespace ClasesInstanciables
             return stringBuilder.ToString();
         }
 
-        public static bool operator ==(Alumno a, EClases clase)
+        public static bool operator ==(Alumno a, Universidad.EClases clase)
         {
             bool retorno = false;
             if (a._claseQueToma == clase)
@@ -51,7 +51,7 @@ namespace ClasesInstanciables
             return retorno;
         }
 
-        public static bool operator !=(Alumno a, EClases clase)
+        public static bool operator !=(Alumno a, Universidad.EClases clase)
         {
             return !(a == clase);
         }
@@ -63,7 +63,7 @@ namespace ClasesInstanciables
 
         public override string ToString()
         {
-            return this.MostrarDatos();
+            return  this.MostrarDatos();
         }
 
         public override int GetHashCode()

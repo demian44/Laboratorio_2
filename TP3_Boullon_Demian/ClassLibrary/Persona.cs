@@ -155,8 +155,7 @@ namespace EntidadesAbstractas
                 if (aux < 1 || aux > 89999999)
                     throw (new DniInvalidoException("Fuera de rango."));
             }
-            else
-                throw (new NacionalidadInvalidaException("No es argentino."));
+                        
             
             return aux;
         }

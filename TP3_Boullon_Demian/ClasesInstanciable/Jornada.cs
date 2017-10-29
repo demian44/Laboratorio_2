@@ -4,7 +4,6 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
-using static ClasesInstanciables.Universidad;
 
 namespace ClasesInstanciables
 {
@@ -20,7 +19,7 @@ namespace ClasesInstanciables
     public class Jornada
     {
         private List<Alumno> _alumno;
-        private EClases _clase;
+        private Universidad.EClases _clase;
         private Profesor _instructor;
 
         public List<Alumno> Alumnos
@@ -29,7 +28,7 @@ namespace ClasesInstanciables
             set { this._alumno = value; }
         }
 
-        public EClases Clase
+        public Universidad.EClases Clase
         {
             get { return this._clase; }
             set { this._clase = value; }
@@ -58,10 +57,10 @@ namespace ClasesInstanciables
         public string Leer()
         {
             string retorno = " ";
-            if (File.Exists("Jornada"))
+            if (File.Exists("../../Jornada"))
             {
                 Texto texto = new Texto();
-                texto.Leer("Jornada.txt", out retorno);
+                texto.Leer("../../Jornada.txt", out retorno);
             }
             return retorno;
         }
@@ -71,7 +70,8 @@ namespace ClasesInstanciables
             this._alumno = new List<Alumno>();
         }
 
-        public Jornada(EClases clase, Profesor instructor) : this()
+        public Jornada(Universidad.EClases clase, Profesor instructor)
+            : this()
         {
             this._instructor = instructor;
             this._clase = clase;
@@ -95,6 +95,8 @@ namespace ClasesInstanciables
             {
                 if (!j._alumno.Contains(a))
                     j._alumno.Add(a);
+                else
+                    throw new AlumnoRepetidoException();
             }
             return j;
         }

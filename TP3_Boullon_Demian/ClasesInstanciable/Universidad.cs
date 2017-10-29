@@ -157,20 +157,22 @@ namespace ClasesInstanciables
             {
                 Jornada jornada;
                 if (g._profesores.Count == 0)
-                    throw (new SinProfesorException());
+                   throw (new SinProfesorException());
 
                 foreach(Profesor prof in g._profesores)
                 {
-                    if(prof==clase)
-                    {
+                    //if(prof==clase)
+                    //{
                         jornada = new Jornada(clase, prof);
                         foreach (Alumno alumno in g._alumnos)
                         {
-                            if (alumno == clase)
+                            //if (alumno == clase)
                                 jornada.Alumnos.Add(alumno);
                         }
+                        g.Jornadas.Add(jornada);
+
                         break;
-                    }
+                    //S}
                 }             
             }
             return g;
@@ -180,6 +182,8 @@ namespace ClasesInstanciables
         {
             if (g != profesor)            
                 g.Instructores.Add(profesor);
+             
+                
 
             return g;
         }
@@ -188,9 +192,11 @@ namespace ClasesInstanciables
         public override string ToString()
         {
             StringBuilder stringBuilder = new StringBuilder();
-            stringBuilder.Append(this._alumnos.ToString());
-            stringBuilder.AppendLine(this._jornada.ToString());
-            stringBuilder.AppendLine(this._profesores.ToString());
+            foreach (Jornada jornada in this._jornada)
+            {
+                stringBuilder.AppendLine(jornada.ToString());
+            }
+          
             return stringBuilder.ToString();
         }                    
         #endregion
