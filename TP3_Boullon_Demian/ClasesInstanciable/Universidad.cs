@@ -58,10 +58,10 @@ namespace ClasesInstanciables
             }
             set
             {
-                if(!ReferenceEquals(value,null))
-                {                    
+                if (!ReferenceEquals(value, null))
+                {
                     this._jornada[i] = value;
-                }                    
+                }
             }
         }
         #endregion
@@ -100,11 +100,11 @@ namespace ClasesInstanciables
 
         public static bool operator ==(Universidad g, Alumno a)
         {
-            if(!ReferenceEquals(null,g) && !ReferenceEquals(null,a))
+            if (!ReferenceEquals(null, g) && !ReferenceEquals(null, a))
             {
                 if (g._alumnos.Contains(a))
                     return true;
-            }            
+            }
             return false;
         }
         public static bool operator !=(Universidad g, Alumno a)
@@ -115,7 +115,7 @@ namespace ClasesInstanciables
 
         public static bool operator ==(Universidad g, EClases clase)
         {
-            foreach(Jornada jornada in g._jornada)
+            foreach (Jornada jornada in g._jornada)
             {
                 if (jornada.Clase == clase)
                     return true;
@@ -145,10 +145,20 @@ namespace ClasesInstanciables
 
         public static Universidad operator +(Universidad g, Alumno a)
         {
-            if (g != a)
+            if (!ReferenceEquals(null, g) && !ReferenceEquals(g, a))
             {
-                g._alumnos.Add(a);
+                if (g != a)
+                {
+                    g._alumnos.Add(a);
+                }
+                else
+                {
+                   // throw new AlumnoRepetidoException();
+                }
             }
+            else
+                throw new Exception("Referencia nula");
+            
             return g;
         }
         public static Universidad operator +(Universidad g, EClases clase)
@@ -157,33 +167,32 @@ namespace ClasesInstanciables
             {
                 Jornada jornada;
                 if (g._profesores.Count == 0)
-                   throw (new SinProfesorException());
+                    throw (new SinProfesorException());
 
-                foreach(Profesor prof in g._profesores)
+                foreach (Profesor prof in g._profesores)
                 {
-                    //if(prof==clase)
-                    //{
+                    if (prof == clase)
+                    {
                         jornada = new Jornada(clase, prof);
                         foreach (Alumno alumno in g._alumnos)
                         {
                             //if (alumno == clase)
-                                jornada.Alumnos.Add(alumno);
+                            jornada.Alumnos.Add(alumno);
                         }
                         g.Jornadas.Add(jornada);
 
                         break;
-                    //S}
-                }             
+                    }
+                }
             }
             return g;
         }
 
         public static Universidad operator +(Universidad g, Profesor profesor)
         {
-            if (g != profesor)            
+
+            if (g != profesor)
                 g.Instructores.Add(profesor);
-             
-                
 
             return g;
         }
@@ -196,9 +205,9 @@ namespace ClasesInstanciables
             {
                 stringBuilder.AppendLine(jornada.ToString());
             }
-          
+
             return stringBuilder.ToString();
-        }                    
+        }
         #endregion
 
         public enum EClases { Programacion, Laboratorio, SPD, Legislacion }

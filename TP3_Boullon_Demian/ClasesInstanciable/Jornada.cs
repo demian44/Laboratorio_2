@@ -54,7 +54,7 @@ namespace ClasesInstanciables
                 //throw (new ArchivosException(new Exception()));
             }           
         }
-        public string Leer()
+        public static string Leer()
         {
             string retorno = " ";
             if (File.Exists("../../Jornada"))
@@ -105,7 +105,7 @@ namespace ClasesInstanciables
         {
             StringBuilder stringBuilder = new StringBuilder();
             stringBuilder.AppendLine("<------------------------------------------------>");
-            stringBuilder.AppendLine("CLASE DE " + this._clase.ToString() + "POR " + this._instructor.ToString());
+            stringBuilder.AppendLine("CLASE DE " + this._clase.ToString() + " POR " + this._instructor.ToString());
             stringBuilder.AppendLine("ALUMNOS:");
             foreach (Alumno alumno in this._alumno)
             {

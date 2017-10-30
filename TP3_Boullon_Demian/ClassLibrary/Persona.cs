@@ -87,11 +87,11 @@ namespace EntidadesAbstractas
         {
             try
             {
-                this._dni = this.ValidarDni(nacionalidad, dni);
+                this._dni = ValidarDni(nacionalidad, dni);
             }
             catch
             {
-
+                throw new DniInvalidoException("asd");
             }
 
 
@@ -100,7 +100,7 @@ namespace EntidadesAbstractas
         public Persona(String nombre, String apellido, String dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
         {
             int aux = 0;
-            if (int.TryParse(dni, out aux) && this.ValidarDni(nacionalidad,aux)!=0)
+            if (int.TryParse(dni, out aux) && ValidarDni(nacionalidad, aux) != 0)
                 this._dni = aux;
         }
 
@@ -129,14 +129,17 @@ namespace EntidadesAbstractas
         /// </summary>
         /// <param name="dni"></param>
         /// <returns></returns>
-        private int ValidarDni(ENacionalidad nacionalidad, int dni)
+        private static int ValidarDni(ENacionalidad nacionalidad, int dni)
         {
             int retorno = 0;
-            if (nacionalidad == ENacionalidad.Argentino)
-            {
-                if (dni > 0 && dni < 90000000)
-                    retorno = dni;
-            }
+
+            if (dni < 1 || dni > 89999999 && nacionalidad == ENacionalidad.Argentino)
+                throw new DniInvalidoException("Valor invalido.");            
+            else if (dni > 1 && dni < 89999999 && nacionalidad != ENacionalidad.Argentino)            
+                throw new NacionalidadInvalidaException(" Numero opNacionalidad incorrecta");            
+            else            
+                retorno = dni;
+            
             return retorno;
         }
 
@@ -155,8 +158,7 @@ namespace EntidadesAbstractas
                 if (aux < 1 || aux > 89999999)
                     throw (new DniInvalidoException("Fuera de rango."));
             }
-                        
-            
+
             return aux;
         }
 
