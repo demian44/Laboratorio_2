@@ -15,12 +15,13 @@ using System.Threading.Tasks;
  *  ToString retornará los datos de la Persona.
  * 
  * */
-namespace ClassLibrary
+namespace EntidadesAbstractas
 {
-    public enum ENacionalidad { Argentino, Extranjero }
+
 
     public abstract class Persona
     {
+        public enum ENacionalidad { Argentino, Extranjero }
         private string _nombre;
         private string _apellido;
         private ENacionalidad _nacionalidad;
@@ -57,6 +58,12 @@ namespace ClassLibrary
             }
         }
 
+        public int Dni
+        {
+            get { return this._dni; }
+            set { this._dni = value; }
+        }
+
         #endregion
 
 
@@ -78,15 +85,23 @@ namespace ClassLibrary
 
         public Persona(String nombre, String apellido, int dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
         {
-            if (this.ValidarDni(dni))
-                this._dni = dni;
+            try
+            {
+                this._dni = this.ValidarDni(nacionalidad, dni);
+            }
+            catch
+            {
+
+            }
+
+
         }
 
         public Persona(String nombre, String apellido, String dni, ENacionalidad nacionalidad) : this(nombre, apellido, nacionalidad)
         {
             int aux = 0;
-            if (int.TryParse(dni, out aux) && this.ValidarDni(aux))
-                this._dni = aux;         
+            if (int.TryParse(dni, out aux) && this.ValidarDni(nacionalidad,aux)!=0)
+                this._dni = aux;
         }
 
         /// <summary>
@@ -133,11 +148,16 @@ namespace ClassLibrary
         private int ValidarDni(ENacionalidad nacionalidad, string dni)
         {
             int aux = 0;
-            if (nacionalidad == ENacionalidad.Argentino && int.TryParse(dni,out aux))
+            if (nacionalidad == ENacionalidad.Argentino)
             {
+                if (!int.TryParse(dni, out aux))
+                    throw (new DniInvalidoException("Se ingresaron caracteres invalidos."));
                 if (aux < 1 || aux > 89999999)
-                    aux = 0;
+                    throw (new DniInvalidoException("Fuera de rango."));
             }
+            else
+                throw (new NacionalidadInvalidaException("No es argentino."));
+            
             return aux;
         }
 
@@ -147,8 +167,10 @@ namespace ClassLibrary
         /// <returns></returns>
         public override string ToString()
         {
-            return String.Format("Nombre: {0}\nApellido: {1}\nNacionalidad: {2}\nDNI: {3}", this._apellido, this._nombre, this._nacionalidad.ToString(), this._dni);
+            return String.Format("NOMBRE COMPLETO: {0}, {1}\nNacionalidad: {2}\n", this._apellido, this._nombre, this._nacionalidad.ToString());
         }
+
+
         #endregion
     }
 }

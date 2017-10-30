@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Archivos
 {
-    public class Texto : IArchivo
+    public class Texto : IArchivo<string>
     {
         public bool Guardar(string archivo, string datos)
         {
@@ -20,6 +20,7 @@ namespace Archivos
                 streamWriter.Close();
                 retorno = true;
             }
+
             return retorno;
         }
 
@@ -39,5 +40,6 @@ namespace Archivos
 
             return retorno;
         }
-    }
+    }      
+
 }

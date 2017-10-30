@@ -4,17 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ClassLibrary
+namespace EntidadesAbstractas
 {    
  
     public class DniInvalidoException : Exception
-    {
-        private string message;
-        public DniInvalidoException(string message, Exception innerException)
-            : base(message, innerException)
-        {
-
-        }
+    {       
+       
         public DniInvalidoException()
             : base()
         {

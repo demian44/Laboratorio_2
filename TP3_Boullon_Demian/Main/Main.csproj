@@ -4,14 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8D69F160-2292-4A9A-899F-80E70ED33D19}</ProjectGuid>
+    <ProjectGuid>{27BC249A-8019-4ACF-B2F2-BA7B06188EAC}</ProjectGuid>
     <OutputType>Exe</OutputType>
-    <RootNamespace>TP3_Boullon_Demian</RootNamespace>
-    <AssemblyName>TP3_Boullon_Demian</AssemblyName>
+    <RootNamespace>Main</RootNamespace>
+    <AssemblyName>Main</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -66,9 +64,6 @@
       <Project>{b653db08-c8fe-4f1a-b6ab-5a587bbf81b0}</Project>
       <Name>Excepciones</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

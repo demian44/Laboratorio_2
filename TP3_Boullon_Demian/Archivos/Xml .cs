@@ -9,30 +9,36 @@ using System.Xml.Serialization;
 
 namespace Archivos
 {
-    public class Xml<T> : ITexto
+    public class Xml<T> : IArchivo<T>
     {
-        public bool Guardar(string archivo, string datos)
+        public bool Guardar(string archivo, T datos)
         {
-            bool retorno = false;            
+            bool retorno = false;                 
             if(archivo != String.Empty)
-            XmlSerializer xmlSerializer;
-            XmlTextWriter xmlWriter = new XmlTextWriter(archivo,Encoding.ASCII);
-            xmlSerializer = new XmlSerializer(typeof(T));
-            return retorno;
-        }
-        public bool Leer(string archivo, out string datos)
-        {
-            bool retorno = false;
-            StreamReader streamWriter;
-            if (File.Exists(archivo))
             {
-                streamWriter = new StreamReader(archivo);
-                datos = streamWriter.ReadToEnd();
-                streamWriter.Close();
+                XmlSerializer xmlSerializer;
+                XmlTextWriter xmlWriter = new XmlTextWriter(archivo, Encoding.ASCII);
+                xmlSerializer = new XmlSerializer(typeof(T));
                 retorno = true;
             }
-            else
-                datos = String.Empty;
+            return retorno;
+        }
+        public bool Leer(string archivo, out T datos)
+        {
+            bool retorno = false;            
+            XmlTextReader xmlTextReader;
+            XmlSerializer xmlSerializer;
+            if (File.Exists(archivo))
+            {
+                xmlTextReader = new XmlTextReader(archivo);
+                xmlSerializer = new XmlSerializer(typeof(T));
+
+                datos = (T)xmlSerializer.Deserialize(xmlTextReader);
+                xmlTextReader.Close();
+                retorno = true;
+            }
+            else            
+                datos = default(T);            
 
             return retorno;
         }

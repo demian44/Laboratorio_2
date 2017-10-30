@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8D69F160-2292-4A9A-899F-80E70ED33D19}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <RootNamespace>TP3_Boullon_Demian</RootNamespace>
-    <AssemblyName>TP3_Boullon_Demian</AssemblyName>
+    <ProjectGuid>{D42A3642-D46F-4680-9207-6BEA80DAA65B}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ClasesInstanciabless</RootNamespace>
+    <AssemblyName>ClasesInstanciabless</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +22,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -43,32 +40,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Alumno.cs" />
+    <Compile Include="Jornada.cs" />
+    <Compile Include="Profesor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
+    <Compile Include="Universidad.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Archivos\Archivos.csproj">
       <Project>{a8f8e34d-2d16-41b2-93d4-c463aa7c0b4e}</Project>
       <Name>Archivos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ClasesInstanciable\ClasesInstanciables.csproj">
-      <Project>{d1211a00-2cc5-4934-a275-d73293bdade3}</Project>
-      <Name>ClasesInstanciables</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ClassLibrary\ClasesAbstractas.csproj">
       <Project>{7d9c02d7-bb9d-476d-9590-c1fcf13db69c}</Project>
       <Name>ClasesAbstractas</Name>
     </ProjectReference>
     <ProjectReference Include="..\Excepciones\Excepciones.csproj">
-      <Project>{b653db08-c8fe-4f1a-b6ab-5a587bbf81b0}</Project>
+      <Project>{B653DB08-C8FE-4F1A-B6AB-5A587BBF81B0}</Project>
       <Name>Excepciones</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
