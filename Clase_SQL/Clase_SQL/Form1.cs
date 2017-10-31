@@ -33,9 +33,7 @@ namespace Clase_SQL
                 SqlDataReader sqlDataReader;
                 sqlDataReader = comando.ExecuteReader();
                 while (sqlDataReader.Read())
-                {
                     this.comboBox1.Items.Add(sqlDataReader["Descripcion"]);
-                }
                 sqlConnection.Close();
             }
             catch
@@ -52,19 +50,6 @@ namespace Clase_SQL
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
-        }
-
-        private void comboBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void btnLoc_Click(object sender, EventArgs e)
-        {
-
-          
-
 
         }
 

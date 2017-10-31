@@ -42,7 +42,7 @@
             this.comboBox1.Size = new System.Drawing.Size(262, 21);
             this.comboBox1.TabIndex = 0;
             this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
-            this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
+            
             // 
             // comboBox2
             // 
@@ -70,8 +70,7 @@
             this.btnLoc.Size = new System.Drawing.Size(62, 70);
             this.btnLoc.TabIndex = 3;
             this.btnLoc.Text = "Loc.";
-            this.btnLoc.UseVisualStyleBackColor = true;
-            this.btnLoc.Click += new System.EventHandler(this.btnLoc_Click);
+            this.btnLoc.UseVisualStyleBackColor = true;            
             // 
             // Form1
             // 
