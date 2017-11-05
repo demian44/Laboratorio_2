@@ -7,16 +7,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
 using System.Threading;
 using Hilo;
+using System.IO;
+using Archivos;
 
 namespace Navegador
 {
     public partial class frmWebBrowser : Form
     {
         private const string ESCRIBA_AQUI = "Escriba aquí...";
-        Archivos.Texto archivos;
+        Texto<String> archivos;
 
         public frmWebBrowser()
         {
@@ -29,8 +30,7 @@ namespace Navegador
             this.txtUrl.SelectionLength = 0; //from being highlighted
             this.txtUrl.ForeColor = Color.Gray;
             this.txtUrl.Text = frmWebBrowser.ESCRIBA_AQUI;
-
-            archivos = new Archivos.Texto(frmHistorial.ARCHIVO_HISTORIAL);
+            archivos = new Archivos.Texto<String>(frmHistorial.ARCHIVO_HISTORIAL);
         }
 
         #region "Escriba aquí..."
@@ -88,6 +88,17 @@ namespace Navegador
             {
                 rtxtHtmlCode.Text = html;
             }
+        }
+
+        private void btnIr_Click(object sender, EventArgs e)
+        {
+            archivos.Guardar(txtUrl.Text);
+        }
+
+        private void mostrarTodoElHistorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {            
+            frmHistorial frmHistorial = new frmHistorial();
+            frmHistorial.ShowDialog();                                
         }
     }
 }

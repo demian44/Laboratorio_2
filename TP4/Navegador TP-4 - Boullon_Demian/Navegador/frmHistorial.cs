@@ -21,8 +21,11 @@ namespace Navegador
 
         private void frmHistorial_Load(object sender, EventArgs e)
         {
-            Archivos.Texto archivos = new Archivos.Texto(frmHistorial.ARCHIVO_HISTORIAL);
-
+            Archivos.Texto<String> archivos = new Archivos.Texto<String>(frmHistorial.ARCHIVO_HISTORIAL);
+            List<string> textoList;
+            archivos.Leer(out textoList);
+            foreach(string elemento in textoList)            
+                this.lstHistorial.Items.Add(elemento);
             
         }
     }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 
 namespace Ejemplo_Eventos
 {
@@ -29,7 +30,8 @@ namespace Ejemplo_Eventos
         public void esteMetodoGeneraEvento()
         {
             // Duermo el programa durante el tiempo dado
-            System.Threading.Thread.Sleep(tiempo);
+            Thread.Sleep(tiempo);
+            Thread.
             // Lanzo el evento
             EventoQueGenera(String.Format("Evento lanzado a los {0} milisegundos",tiempo));
         }

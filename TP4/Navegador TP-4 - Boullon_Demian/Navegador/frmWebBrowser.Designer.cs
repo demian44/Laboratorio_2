@@ -49,6 +49,7 @@
             this.btnIr.TabIndex = 0;
             this.btnIr.Text = "-->";
             this.btnIr.UseVisualStyleBackColor = true;
+            this.btnIr.Click += new System.EventHandler(this.btnIr_Click);
             // 
             // statusStrip
             // 
@@ -114,6 +115,7 @@
             this.mostrarTodoElHistorialToolStripMenuItem.Name = "mostrarTodoElHistorialToolStripMenuItem";
             this.mostrarTodoElHistorialToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.mostrarTodoElHistorialToolStripMenuItem.Text = "Mostrar todo el Historial";
+            this.mostrarTodoElHistorialToolStripMenuItem.Click += new System.EventHandler(this.mostrarTodoElHistorialToolStripMenuItem_Click);
             // 
             // frmWebBrowser
             // 
