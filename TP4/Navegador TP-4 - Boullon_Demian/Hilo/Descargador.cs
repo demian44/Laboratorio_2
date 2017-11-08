@@ -16,6 +16,7 @@ namespace Hilo
 
         public Descargador(Uri direccion)
         {
+            this.direccion = direccion;
             this.html = "";
         }
 
@@ -24,10 +25,9 @@ namespace Hilo
             try
             {
                 WebClient cliente = new WebClient();
-                cliente.DownloadProgressChanged += ;
-                cliente.DownloadStringCompleted += ;
-
-                cliente.DownloadStringAsync();
+                cliente.DownloadProgressChanged += WebClientDownloadProgressChanged;
+                cliente.DownloadStringCompleted += WebClientDownloadCompleted;
+                cliente.DownloadStringAsync(this.direccion);
             }
             catch (Exception e)
             {
@@ -37,9 +37,12 @@ namespace Hilo
 
         private void WebClientDownloadProgressChanged(object sender, DownloadProgressChangedEventArgs e)
         {
-        }
+            int porcentaje = e.ProgressPercentage;                      
+        }        
+
         private void WebClientDownloadCompleted(object sender, DownloadStringCompletedEventArgs e)
         {
+            this.html = e.Result;             
         }
     }
 }

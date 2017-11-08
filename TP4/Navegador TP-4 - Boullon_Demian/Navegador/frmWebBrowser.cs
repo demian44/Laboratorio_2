@@ -64,6 +64,7 @@ namespace Navegador
         #endregion
 
         delegate void ProgresoDescargaCallback(int progreso);
+
         private void ProgresoDescarga(int progreso)
         {
             if (statusStrip.InvokeRequired)
@@ -76,7 +77,9 @@ namespace Navegador
                 tspbProgreso.Value = progreso;
             }
         }
+
         delegate void FinDescargaCallback(string html);
+
         private void FinDescarga(string html)
         {
             if (rtxtHtmlCode.InvokeRequired)
@@ -92,7 +95,10 @@ namespace Navegador
 
         private void btnIr_Click(object sender, EventArgs e)
         {
-            archivos.Guardar(txtUrl.Text);
+            Uri uri = new Uri(this.txtUrl.Text);
+            Descargador descargador = new Descargador(uri);
+            descargador.IniciarDescarga();
+          //  archivos.Guardar(txtUrl.Text);            
         }
 
         private void mostrarTodoElHistorialToolStripMenuItem_Click(object sender, EventArgs e)
