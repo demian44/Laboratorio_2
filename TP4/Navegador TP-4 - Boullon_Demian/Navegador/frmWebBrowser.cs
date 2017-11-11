@@ -18,10 +18,12 @@ namespace Navegador
     {
         private const string ESCRIBA_AQUI = "Escriba aquí...";
         Texto<String> archivos;
+        List<string> _urls;
 
         public frmWebBrowser()
         {
             InitializeComponent();
+            this._urls = new List<string>();
         }
 
         private void frmWebBrowser_Load(object sender, EventArgs e)
@@ -30,10 +32,15 @@ namespace Navegador
             this.txtUrl.SelectionLength = 0; //from being highlighted
             this.txtUrl.ForeColor = Color.Gray;
             this.txtUrl.Text = frmWebBrowser.ESCRIBA_AQUI;
-            archivos = new Archivos.Texto<String>(frmHistorial.ARCHIVO_HISTORIAL);
+            archivos = new Archivos.Texto<String>(frmHistorial.ARCHIVO_HISTORIAL);            
+            if (!(archivos.Leer(out this._urls)))
+            {
+
+            }
         }
 
         #region "Escriba aquí..."
+
         private void txtUrl_MouseMove(object sender, MouseEventArgs e)
         {
             Cursor.Current = Cursors.IBeam; //Without this the mouse pointer shows busy
@@ -75,6 +82,10 @@ namespace Navegador
             else
             {
                 tspbProgreso.Value = progreso;
+                if (progreso == 100)
+                {
+                    tspbProgreso.Value = 0;
+                }
             }
         }
 
@@ -89,16 +100,49 @@ namespace Navegador
             }
             else
             {
-                rtxtHtmlCode.Text = html;
+                if (html == "404")
+                {
+                    MessageBox.Show("404 - File not found :(");
+                }
+                else
+                {
+                    rtxtHtmlCode.Text = html;
+                }
             }
         }
 
         private void btnIr_Click(object sender, EventArgs e)
         {
-            Uri uri = new Uri(this.txtUrl.Text);
-            Descargador descargador = new Descargador(uri);
-            descargador.IniciarDescarga();
-          //  archivos.Guardar(txtUrl.Text);            
+            bool add_to_history = true;
+            string link = txtUrl.Text;
+            if (!(link.Contains("http")))
+            {
+                link = "https://" + link;
+            }
+            if ((this._urls).Count > 0)
+            {
+                foreach (string historyURL in this._urls)
+                {
+                    if (historyURL == link)
+                    {
+                        add_to_history = false;
+                        break;
+                    }
+                }
+            }
+            if (add_to_history)
+            {
+                this._urls.Add(link);
+            }
+
+            Uri url = new Uri(link);
+            Descargador busqueda = new Descargador(url);
+
+            busqueda.EventoProgress += ProgresoDescarga;
+            busqueda.EventoComplete += FinDescarga;
+            Thread hiloDescarga = new Thread(busqueda.IniciarDescarga);
+            hiloDescarga.Start();
+            //  archivos.Guardar(txtUrl.Text);            
         }
 
         private void mostrarTodoElHistorialToolStripMenuItem_Click(object sender, EventArgs e)
@@ -106,5 +150,24 @@ namespace Navegador
             frmHistorial frmHistorial = new frmHistorial();
             frmHistorial.ShowDialog();                                
         }
+        /*
+         * private void mostrarTodoElHistorialToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmHistorial formHistorial = new frmHistorial(this._urls);
+            formHistorial.EventoURLSeleccionada += URLdeHistorial;
+            formHistorial.Show();
+        }
+
+        private void URLdeHistorial (string url)
+        {
+            txtUrl.Text = url;
+            btnIr.PerformClick();
+        }
+
+        private void frmWebBrowser_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            archivos.Guardar(this._urls);
+        }
+         */
     }
 }
