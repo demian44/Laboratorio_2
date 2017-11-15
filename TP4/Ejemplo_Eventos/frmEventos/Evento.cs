@@ -31,9 +31,8 @@ namespace Ejemplo_Eventos
         {
             // Duermo el programa durante el tiempo dado
             Thread.Sleep(tiempo);
-            Thread.
-            // Lanzo el evento
-            EventoQueGenera(String.Format("Evento lanzado a los {0} milisegundos",tiempo));
+
+            EventoQueGenera(String.Format("Evento lanzado a los {0} milisegundos", tiempo));
         }
     }
 }
