@@ -39,7 +39,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="InfoHilo.cs" />
+    <Compile Include="Archivos.cs" />
+    <Compile Include="InfoHilos.cs" />
     <Compile Include="IRespuesta.cs" />
     <Compile Include="LosHilos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

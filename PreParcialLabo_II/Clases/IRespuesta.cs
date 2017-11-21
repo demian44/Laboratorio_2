@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace Clases
 {
-    public interface IRespuesta<T>
+    public interface IRespuesta<PEPITO>
     {
-       void REspuestaHIlo(T id);
+       void REspuestaHIlo(PEPITO id);
     }
 }

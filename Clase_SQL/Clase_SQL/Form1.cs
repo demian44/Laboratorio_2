@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Threading;
 
 namespace Clase_SQL
 {
@@ -50,27 +51,29 @@ namespace Clase_SQL
 
         private void comboBox2_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            Thread thread = new Thread(Pepe);
+            thread.Start();
         }
-
+        public void Pepe()
+        {
+            int pspe = 2;
+        }
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string connectionStr5 = "Data Source=.\\sqlexpress;Initial Catalog=Argentina;Integrated Security=True";
-
+            string consulta = "select * from Localidad  L inner join Provincia P on P.id = L.idProvincia where p.descripcion = '" + this.comboBox1.Text + "'";
             SqlConnection sqlConnection2 = new SqlConnection(connectionStr5);
-
-            SqlCommand comando2 = new SqlCommand("select * from Localidad  L inner join Provincia P on P.id = L.idProvincia where p.descripcion = '" + this.comboBox1.Text + "'",sqlConnection2);
-            
+            SqlCommand comando2 = new SqlCommand(consulta, sqlConnection2);            
             try
             {
                 sqlConnection2.Open();
                 SqlDataReader sqlDataReader;
                 sqlDataReader = comando2.ExecuteReader();
+                comando2
                 while (sqlDataReader.Read())
                 {
                     this.comboBox2.Items.Add(sqlDataReader["Nombre"]);
-                }
-                
+                }                
             }
             catch
             {

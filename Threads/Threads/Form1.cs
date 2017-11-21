@@ -31,24 +31,23 @@ namespace Threads
 
     public class Coso
     {
-        public string Mensaje { get; set; } 
+        public string Mensaje { get; set; }
 
         public void ElCoso()
         {
-            
-           
+
+
             int contador = 0;
-            
-            
+
+
             long timepo = long.Parse(DateTime.Now.Second.ToString()) + 2;
             while (true)
             {
-                if(long.Parse(DateTime.Now.Second.ToString()) > timepo)
-                {
-                    MessageBox.Show("A lo hecho pecho.");
-                    timepo += 50;
-                    contador++;
-                }
+                Thread.Sleep(1000);
+                MessageBox.Show("A lo hecho pecho.");
+                timepo += 50;
+                contador++;
+
                 if (contador > 6)
                     break;
             }

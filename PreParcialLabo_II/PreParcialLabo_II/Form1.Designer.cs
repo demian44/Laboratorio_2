@@ -50,6 +50,7 @@
             this.btnBitacora.TabIndex = 1;
             this.btnBitacora.Text = "Bitacora";
             this.btnBitacora.UseVisualStyleBackColor = true;
+            this.btnBitacora.Click += new System.EventHandler(this.btnBitacora_Click);
             // 
             // Form1
             // 
@@ -60,6 +61,7 @@
             this.Controls.Add(this.btnLanzar);
             this.Name = "Form1";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
 
         }
