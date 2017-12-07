@@ -1,5 +1,10 @@
-﻿namespace Entidades
+﻿using System;
+namespace Entidades
 {
+
+    using System;
+
+    [Serializable]
     public class Paciente : Persona
     {
         private int _turno;
@@ -23,7 +28,7 @@
         #region Methods
         public override string ToString()
         {
-            return string.Format("Turno Nº{0}: {2}, {1}",this._turno,this._nombre,this._apellido);
+            return string.Format("Turno Nº{0}: {2}, {1}", this._turno, this._nombre, this._apellido);
         }
 
         #endregion

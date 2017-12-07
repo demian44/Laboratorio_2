@@ -6,9 +6,10 @@ using System.Threading.Tasks;
 
 namespace Entidades
 {
-    public interface IMedico
+    public class NoSeGuardoException : Exception
     {
-        void IniciarAtencion(Paciente p);
-        
+        public NoSeGuardoException()
+            : base("No se pudo guardar el archivo.") { }
+
     }
 }

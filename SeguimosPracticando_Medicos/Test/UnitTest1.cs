@@ -4,15 +4,15 @@ using Entidades;
 
 namespace Test
 {
-    [TestClass]
+    [TestClass()]
     public class ConstructoresPaciente
     {
-        [TestMethod]
+        [TestMethod()]
         public void TestMethod1()
         {
             
             Paciente paciente1= new Paciente("Nombre", "Apellido");
-            if (paciente1.Turno != 1)
+            if (paciente1.Turno != 3)
                 Assert.Fail("El primer valor debe ser 1.");
             
             Paciente paciente2 =new Paciente("Nombre", "Apellido", 5);

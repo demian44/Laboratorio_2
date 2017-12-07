@@ -23,18 +23,18 @@ namespace Clase_SQL
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            string connectionStr = "Data Source=.\\sqlexpress;Initial Catalog=Argentina;Integrated Security=True";
-
+            string connectionStr = "Data Source=.\\DEM-PC;Initial Catalog=correo-sp-2017;Integrated Security=True";
+            
             SqlConnection sqlConnection = new SqlConnection(connectionStr);
 
-            SqlCommand comando = new SqlCommand("Select * from Provincia", sqlConnection);
+            SqlCommand comando = new SqlCommand("Select * from Paquetes", sqlConnection);
             try
             {
                 sqlConnection.Open();
                 SqlDataReader sqlDataReader;
                 sqlDataReader = comando.ExecuteReader();
                 while (sqlDataReader.Read())
-                    this.comboBox1.Items.Add(sqlDataReader["Descripcion"]);
+                    this.comboBox1.Items.Add(sqlDataReader["direccionEntrega"]);
                 sqlConnection.Close();
             }
             catch
@@ -69,10 +69,9 @@ namespace Clase_SQL
                 sqlConnection2.Open();
                 SqlDataReader sqlDataReader;
                 sqlDataReader = comando2.ExecuteReader();
-                comando2
                 while (sqlDataReader.Read())
                 {
-                    this.comboBox2.Items.Add(sqlDataReader["Nombre"]);
+                    Console.WriteLine(sqlDataReader["Nombre"]);
                 }                
             }
             catch

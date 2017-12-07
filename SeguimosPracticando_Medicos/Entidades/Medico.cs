@@ -3,6 +3,8 @@
 namespace Entidades
 {
     public enum Especialidad { Traumatologo, Odontologo }
+
+    [Serializable]
     public abstract class Medico : Persona
     {
         private Paciente _pacienteActual;
@@ -11,6 +13,7 @@ namespace Entidades
         public string EstaAtendiendoA { get { return this._pacienteActual.ToString(); } }
         public Paciente AtenderA { set { this._pacienteActual = value; } }
 
+        public Medico() {  }
 
         #region Constructores
         static Medico() { Medico.TiempoAleatorio = new Random(); }
